@@ -2,7 +2,71 @@ import React, { Component } from 'react';
 import NITP from '../NITP.png';
 import './App.css';
 
+
+//For file upload using ipfs
+const ipfsClient = require('ipfs-http-client')
+const ipfs = ipfsClient({host: "ipfs.infura.io", port:5001,  protocol: 'https'})
+
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      account:"",
+      buffer: null,
+      contract: null,
+      record: null,
+      type:"",
+      fileHash:"QmdE3yFxHLY4gN5U8HDRnpX3Nj4UMrBkrsdnGWsgjLEyJ4"
+    };
+  }
+
+
+  //callback function for onChange event handler
+  captureFile = (event) => {
+    event.preventDefault()
+
+    //Process file for IPFS
+
+    //1.Capture file and read
+    const file = event.target.files[0]
+    const reader = new window.FileReader()
+
+    //2.Convert file to buffer to upload/send to ipfs
+    reader.readAsArrayBuffer(file)
+    reader.onloadend = () => {
+      this.setState({buffer: Buffer(reader.result)})
+      console.log('buffer', Buffer(reader.result))
+    }
+  }
+
+  //callback function for onSubmit event handler
+  onSubmit = (event) => {
+    event.preventDefault()
+    console.log('submiting file')
+
+    //upload file to ipfs
+    ipfs.add(this.state.buffer, (error, result) => {
+    console.log('ipfs result', result)
+
+      //getting hash of file from ipfs
+      const fileHash = result[0].hash
+      console.log(fileHash)
+      if(error){
+        console.error(error)
+        return
+      }
+
+      //store hash on blockchain
+      // this.state.contract.methods.setInfo(this.state.type, fileHash, 0).send({from: this.state.account}).then((r) => {
+      //   this.setState({fileHash: fileHash})
+      // })
+    })
+
+    
+  }
+
+
   render() {
     return (
       <div>
@@ -46,7 +110,11 @@ class App extends Component {
                     
                     <input type="submit" />
                   </form>
-                  {/* <a className='fileshow'  href={`https://ipfs.infura.io/ipfs/${this.state.fileHash}`}>Get file</a> */}
+          
+                  <div className="mt-4">
+                    <a className='fileshow'  href={`https://ipfs.infura.io/ipfs/${this.state.fileHash}`}>Get file</a>
+                  </div>
+
                 </div>
               </div>
             </main>
