@@ -1,1 +1,17 @@
 /* Styles go here */
+.form{
+    margin-top: 2rem; 
+ }
+ 
+ .content{
+     padding: 1.5rem;
+     margin-top: 2rem; 
+     border: 1px groove;
+     border-radius: 8px;
+  }
+ 
+  .fileshow{
+     margin-top: 10px;
+     padding: 3px 10px 3px;
+     background-color: aqua; 
+  }
