@@ -16,7 +16,7 @@ class App extends Component {
       buffer: null,
       contract: null,
       record: null,
-      type:"",
+      type:"aadhar",
       fileHash:"QmdE3yFxHLY4gN5U8HDRnpX3Nj4UMrBkrsdnGWsgjLEyJ4"
     };
   }
@@ -38,6 +38,13 @@ class App extends Component {
       this.setState({buffer: Buffer(reader.result)})
       console.log('buffer', Buffer(reader.result))
     }
+  }
+
+  captureType = (event) => {
+    event.preventDefault()
+    const type = document.getElementById('type').value
+    this.setState({type : type})
+    console.log(type)
   }
 
   //callback function for onSubmit event handler
