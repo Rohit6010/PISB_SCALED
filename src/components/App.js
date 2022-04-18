@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.png';
+import NITP from '../NITP.png';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dapp University
+            PISB
           </a>
         </nav>
         <div className="container-fluid mt-5">
@@ -25,20 +25,29 @@ class App extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={logo} className="App-logo" alt="logo" />
+                  <img src={NITP} className="App-logo" alt="logo" />
                 </a>
-                <h1>Dapp University Starter Kit</h1>
-                <p>
-                  Edit <code>src/components/App.js</code> and save to reload.
-                </p>
-                <a
-                  className="App-link"
-                  href="http://www.dappuniversity.com/bootcamp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LEARN BLOCKCHAIN <u><b>NOW! </b></u>
-                </a>
+                <h1>National Institute Of Technology Patna</h1>
+                <h4>
+                 Personal Information Storage Using Etherium Blockchain
+                </h4>
+
+                <div className="content">
+                  <h3>Add Your Files</h3>
+                  <form action="" className='form' onSubmit={this.onSubmit}>
+                    <input type="file" onChange={this.captureFile}/>
+                    <select className='mr-5' name="type" id="type" onChange={this.captureType}>
+                       <option value="aadhar">Aadhar Card</option>
+                       <option value="drive">Driving License</option>
+                       <option value="pan">Pan Card</option>
+                       <option value="tenth">Tenth Certificate</option>
+                       <option value="twelth">Twelth Certificate</option>
+                    </select>
+                    
+                    <input type="submit" />
+                  </form>
+                  {/* <a className='fileshow'  href={`https://ipfs.infura.io/ipfs/${this.state.fileHash}`}>Get file</a> */}
+                </div>
               </div>
             </main>
           </div>
