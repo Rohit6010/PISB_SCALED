@@ -9,9 +9,9 @@ contract File{
     string twelth;
   }
 
-    Info[10] inf;
+    Info[50] inf;
     constructor() public{
-       for(uint i = 0; i<10; i++){
+       for(uint i = 0; i<50; i++){
        inf[i] = Info("null", "null", "null", "null", "null");
     }
 

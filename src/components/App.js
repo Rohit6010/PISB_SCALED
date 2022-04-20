@@ -26,7 +26,7 @@ class App extends Component {
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
-
+    
     //get network id
     const networkId = await web3.eth.net.getId()
 
@@ -55,7 +55,7 @@ class App extends Component {
       account: "",
       buffer: null,
       contract: null,
-      record: {},
+      record: {0:'null', 1:'null', 2:'null', 3:'null', 4:'null'},
       type: "aadhar",
       fileHash: "QmdE3yFxHLY4gN5U8HDRnpX3Nj4UMrBkrsdnGWsgjLEyJ4"
     };
