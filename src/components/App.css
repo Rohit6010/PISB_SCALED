@@ -3,16 +3,58 @@
     margin-top: 2rem; 
  }
  
+ .back{
+   background-color: rgb(242, 215, 9);
+ }
+
  .content{
-     padding: 1.5rem;
+     padding: 0.3rem 2rem 2rem;
      margin-top: 2rem; 
      border: 1px groove;
-     border-radius: 8px;
+     border-radius: 12px;
+  }
+
+  .content1{
+   padding: 1rem 2rem 2rem;
+   margin-top: 1.5rem; 
+   border: 1px groove;
+   border-radius: 12px; 
   }
  
   .fileshow{
      display: none;
      margin-top: 10px;
-     padding: 3px 10px 3px;
-     background-color: aqua; 
+     /* padding: 3px 10px 3px;  */
+  }
+
+  .file{
+     margin-bottom: 1.5rem;
+  }
+
+  .logo{
+     padding-top: 8px;
+     background-color: rgb(233, 230, 238);
+  }
+
+  .topic{
+    color: rgb(76, 74, 78); 
+    margin-bottom: 0;
+  }
+
+  .cst{
+     border-radius: 8px;
+     padding: 5px;
+  }
+
+  .margin{
+     margin-left: 25%;
+     margin-right: 25%;
+  }
+
+  .rule{
+     background-color: whitesmoke;
+  }
+
+  .outer{
+     background-color: rgb(215, 224, 224);
   }
